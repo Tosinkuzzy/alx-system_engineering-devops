@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script that groups visitors by IP and HTTP status code, and displays this data.
+
+awk '{printf "%s, %s\n", $1, $9}' apache-aceess.log | sort | uniq -c | sort -nr

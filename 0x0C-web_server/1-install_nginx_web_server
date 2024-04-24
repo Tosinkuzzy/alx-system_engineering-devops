@@ -11,9 +11,6 @@ sudo service nginx start
 # Create a simple HTML file
 echo "Hello World!" > /var/www/html/index.html
 
-# Modify the Nginx configuration to listen on port 80 and serve the created HTML file
-sudo sed -i 's|root /var/www/html;|root /var/www/html/index.html;|' /etc/nginx/sites-available/default
-
 # Restart Nginx to apply the changes (without using systemctl)
 sudo service nginx restart
 

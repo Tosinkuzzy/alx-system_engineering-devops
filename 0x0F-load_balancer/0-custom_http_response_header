@@ -17,7 +17,7 @@ sudo sed -i "s/server_name _;/$new_string/" /etc/nginx/sites-enabled/default
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 
 # custom HTTP response header
-sudo sed -i "server_name _;/a add_header X-Server-By $HOSTNAME;" /etc/nginx/sites-enabled/default
+sudo sed -i "s/server_name _;/server_name _;\n\tadd_header X-Server-By \$HOSTNAME;/" /etc/nginx/sites-enabled/default
 
 # Test for syntax errors
 sudo nginx -t

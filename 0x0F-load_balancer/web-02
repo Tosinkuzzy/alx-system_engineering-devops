@@ -8,4 +8,4 @@ eval $("ssh-agent")
 ssh-add ~/.ssh/school
 
 # user and IProtocol
-ssh ubuntu@52.91.131.213
+ssh ubuntu@107.21.137.236

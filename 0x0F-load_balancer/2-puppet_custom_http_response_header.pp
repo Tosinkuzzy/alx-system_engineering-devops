@@ -2,7 +2,7 @@
 
 exec {'update':
   provider => shell,
-  command  => 'sudo apt-get -y update',
+  command  => 'sudo apt-get update',
   before   => Exec['install Nginx'],
 }
 
@@ -12,7 +12,7 @@ exec {'install Nginx':
   before   => Exec['add_header'],
 }
 
-exec { 'add_header':
+exec { 'a add_header':
   provider    => shell,
   environment => ["host=${HOSTNAME}"],
   command     => 'sudo sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/include \/etc\/nginx\/sites-enabled\/\*;\n\ta add_header X-Served-By \"$HOSTNAME\";/" /etc/nginx/nginx.conf',

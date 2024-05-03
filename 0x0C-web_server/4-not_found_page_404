@@ -18,7 +18,7 @@ new_string="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation 
 
 sudo sed -i "s/listen 80 default_server;/$new_string/" /etc/nginx/sites-enabled/default
 
-# Testing configurations for syntax errors
+# Testing configurations for syntax errors and confirmation
 sudo nginx -t
 
 # restart nginx after implementing changes

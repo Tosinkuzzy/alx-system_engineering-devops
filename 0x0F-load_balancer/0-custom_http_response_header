@@ -9,7 +9,7 @@ sudo apt-get install -y nginx
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
 # redirection
-new_string="server_name _;\n\trewrite \/redirect_me https:\/\/github.com\/tosinkuzzy permanent;"
+new_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/tosinkuzzy permanent;"
 
 sudo sed -i "s/server_name _;/$new_string/" /etc/nginx/sites-enabled/default
 

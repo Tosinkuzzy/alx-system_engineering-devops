@@ -1,3 +1,4 @@
+#
 global
 	log /dev/log	local0
 	log /dev/log	local1 notice
@@ -34,21 +35,11 @@ defaults
 	errorfile 504 /etc/haproxy/errors/504.http
 
 frontend  tosinkuzzy_frontend
-        bind *:80
-        mode http
-        default_backend tosinkuzzy_backend
+    bind *:443 ssl crt /etc/haproxy/certs/www.pem
+    mode http
+    default_backend tosinkuzzy_backend
+
 backend tosinkuzzy_backend
-        balance roundrobin
-        server 296264-web-01 54.198.54.113:80 check
-        server 296264-web-02 100.26.214.75:80 check
-
-
-frontend  tosinkuzzy_frontend
-        bind *:80
-        mode http
-        default_backend tosinkuzzy_backend
-backend tosinkuzzy_backend
-        balance roundrobin
-        server 296264-web-01 54.198.54.113:80 check
-        server 296264-web-02 100.26.214.75:80 check
-
+    balance roundrobin
+    server 296264-web-01 54.198.54.113:80 check
+    server 296264-web-02 100.26.214.75:80 check
